@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1718471947 source:d:\choi c++\hoc c++\btl\main.cpp
+	<iostream>
+	<unordered_map>
+	"KhachHang.h"
+	"NhanVien.h"
+
+1718472527 d:\choi c++\hoc c++\btl\khachhang.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+
+1718472009 d:\choi c++\hoc c++\btl\user.h
+	<string>
+
+1718471852 d:\choi c++\hoc c++\btl\nhanvien.h
+	"User.h"
+
+1718471896 source:d:\choi c++\hoc c++\btl\nhanvien.cpp
+	"NhanVien.h"
+	<iostream>
+
+1718472515 source:d:\choi c++\hoc c++\btl\khachhang.cpp
+	"KhachHang.h"
+	<iostream>
+
