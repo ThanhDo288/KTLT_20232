@@ -15,6 +15,7 @@ public:
     User(string id, string name) : id(id), name(name) {}
     virtual void displayInfo() const = 0;
     string getId() const { return id; }
+    string getName() const { return name; }
 };
 
 #endif // USER_H

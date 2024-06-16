@@ -49,31 +49,38 @@ User* dangNhap(int loai) {
 }
 
 
-
 int main() {
     khoiTaoDuLieu();
 
     int choice;
-    cout << "Chon loai dang nhap:\n";
-    cout << "1. Dang nhap khach hang (nhan 1)\n";
-    cout << "2. Dang nhap nhan vien (nhan 2)\n";
-    cout << "Nhap lua chon: ";
-    cin >> choice;
-    cin.ignore();
+    while (true) {
+        cout << "Chon loai dang nhap:\n";
+        cout << "1. Dang nhap khach hang (nhan 1)\n";
+        cout << "2. Dang nhap nhan vien (nhan 2)\n";
+        cout << "3. Thoat chuong trinh\n";
+        cout << "Nhap lua chon: ";
+        cin >> choice;
+        cin.ignore();
 
-    User* user = dangNhap(choice);
-    if (user != nullptr) {
-        cout << "Dang nhap thanh cong!\n";
-        user->displayInfo();
-
-        if (choice == 1) {
-            KhachHang* kh = dynamic_cast<KhachHang*>(user);
-            giaoDienKhachHang(kh);
-        } else {
-            // Giao diện cho nhân viên (nếu cần)
+        if (choice == 3) {
+            cout << "Thoat chuong trinh...\n";
+            break;
         }
-    } else {
-        cout << "Dang nhap that bai.\n";
+
+        User* user = dangNhap(choice);
+        if (user != nullptr) {
+            cout << "Dang nhap thanh cong!\n";
+            user->displayInfo();
+
+            if (choice == 1) {
+                KhachHang* kh = dynamic_cast<KhachHang*>(user);
+                giaoDienKhachHang(kh);
+            } else {
+                // Giao diện cho nhân viên (nếu cần)
+            }
+        } else {
+            cout << "Dang nhap that bai.\n";
+        }
     }
 
     return 0;

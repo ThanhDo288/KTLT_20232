@@ -25,3 +25,30 @@
 	"KhachHang.h"
 	<iostream>
 
+1718506891 source:d:\choi c++\btl20232\ktlt_20232\btl\khachhang.cpp
+	"KhachHang.h"
+	<iostream>
+	<windows.h>
+
+1718505994 d:\choi c++\btl20232\ktlt_20232\btl\khachhang.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+
+1718503312 d:\choi c++\btl20232\ktlt_20232\btl\user.h
+	<string>
+
+1718471896 source:d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.cpp
+	"NhanVien.h"
+	<iostream>
+
+1718471852 d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.h
+	"User.h"
+
+1718504373 source:d:\choi c++\btl20232\ktlt_20232\btl\main.cpp
+	<iostream>
+	<unordered_map>
+	"KhachHang.h"
+	"NhanVien.h"
+
