@@ -25,12 +25,14 @@
 	"KhachHang.h"
 	<iostream>
 
-1718506891 source:d:\choi c++\btl20232\ktlt_20232\btl\khachhang.cpp
+1718850680 source:d:\choi c++\btl20232\ktlt_20232\btl\khachhang.cpp
 	"KhachHang.h"
 	<iostream>
 	<windows.h>
+	<vector>
+	<fstream>
 
-1718505994 d:\choi c++\btl20232\ktlt_20232\btl\khachhang.h
+1718850037 d:\choi c++\btl20232\ktlt_20232\btl\khachhang.h
 	"User.h"
 	<vector>
 	<string>

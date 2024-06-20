@@ -1,3 +1,4 @@
+
 #ifndef KHACHHANG_H
 #define KHACHHANG_H
 
@@ -22,7 +23,11 @@ public:
     void hienThiLichThamKham() const;
     void hienThiBenhAn() const;
     void hienThiThongTinCaNhan() const;
-    void datLichThamKham(const string& lich, const string& rootPath);
+    void datLichThamKham(const std::string& lich, const std::string& rootPath);
+    void xoaLichThamKham(const std::string& rootPath);
+    void chinhSuaLichThamKham(const std::string& rootPath);
+    void timKiemLichThamKham(const std::string& rootPath);
 };
+
 void giaoDienKhachHang(KhachHang* kh);
 #endif // KHACHHANG_H
