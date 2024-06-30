@@ -1,6 +1,5 @@
 #include "KhachHang.h"
 #include <iostream>
-#include <windows.h>  // Thêm thư viện này
 #include <vector>
 #include <fstream>
 
@@ -8,25 +7,33 @@ using namespace std;
 
 KhachHang::KhachHang() : User() {}
 
-KhachHang::KhachHang(string id, string name) : User(id, name) {}
+KhachHang::KhachHang(string id, string name, string ngaySinh, string gioiTinh, string benhAn, string ngayBatDau)
+    : User(id, name, ngaySinh, gioiTinh) {}
 
 void KhachHang::displayInfo() const {
     cout << "Khach Hang ID: " << id << "\n";
     cout << "Ten: " << name << "\n";
+    cout << "Ngay sinh: " << ngaySinh << "\n";
+    cout << "Gioi tinh: " << gioiTinh << "\n";
 }
 
 void KhachHang::loadFromFile(ifstream &file) {
     getline(file, id);
     getline(file, name);
+    getline(file, ngaySinh);
+    getline(file, gioiTinh);
+    getline(file, benhAn);
+    getline(file, ngayBatDau);
+    // Bỏ qua dòng phân cách
+    string separator;
+    getline(file, separator);
 }
+
 
 void KhachHang::addLichThamKham(const string& lich) {
     lichThamKham.push_back(lich);
 }
 
-void KhachHang::addBenhAn(const string& benh) {
-    benhAn.push_back(benh);
-}
 
 void KhachHang::hienThiLichThamKham() const {
     cout << "Lich Tham Kham:\n";
@@ -37,9 +44,8 @@ void KhachHang::hienThiLichThamKham() const {
 
 void KhachHang::hienThiBenhAn() const {
     cout << "Benh An:\n";
-    for (const string& benh : benhAn) {
-        cout << "- " << benh << "\n";
-    }
+    cout <<"\n";
+    cout << benhAn << "\n";
 }
 
 void KhachHang::hienThiThongTinCaNhan() const {
