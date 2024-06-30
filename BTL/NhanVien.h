@@ -7,22 +7,27 @@
 #include <fstream>
 #include <iostream>
 
+using namespace std;
+
 class NhanVien : public User {
 private:
-    std::vector<std::string> CaTruc;
-
+    vector<string> CaTruc;
+    int luong;
 public:
     NhanVien();
-    NhanVien(std::string id, std::string name);
+    NhanVien(string id, string name, string ngaySinh, string gioiTinh);
 
     void displayInfo() const override;
-    void loadFromFile(std::ifstream &file);
-    void hienThiCaTruc(const std::string& rootPath) const;
-    void hienThiLuong(const std::string& rootPath) const;
-
+    void loadFromFile(ifstream &file);
+    void hienThiCaTruc(const string& rootPath) const;
+    void hienThiLuong(const string& rootPath) const;
+    void addKhachHang(const string& rootPath) const;
+    void timKiemKhachHang(const string& rootPath) const;
+    void suaThongTinKhachHang(const string& khId, const string& rootPath) const;
 };
 
 void giaoDienNhanVien(NhanVien* nv);
+void giaoDienThemKhachHang(NhanVien* nv, const string& rootPath);
+void giaoDienThongTinKhachHang(const string& khId, const string& rootPath);
 
 #endif // NHANVIEN_H
-
