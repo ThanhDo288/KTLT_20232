@@ -15,8 +15,9 @@ void khoiTaoDuLieu() {
         while (!fileKH.eof()) {
             KhachHang kh;
             kh.loadFromFile(fileKH);
-            if (fileKH.fail()) break; // Check for failure
-            khachHangMap[kh.getId()] = kh;
+            if (!kh.getId().empty()) { // Kiểm tra xem ID có trống không
+                khachHangMap[kh.getId()] = kh;
+            }
         }
         fileKH.close();
     } else {
@@ -29,8 +30,9 @@ void khoiTaoDuLieu() {
         while (!fileNV.eof()) {
             NhanVien nv;
             nv.loadFromFile(fileNV);
-            if (fileNV.fail()) break; // Check for failure
-            nhanVienMap[nv.getId()] = nv;
+            if (!nv.getId().empty()) { // Kiểm tra xem ID có trống không
+                nhanVienMap[nv.getId()] = nv;
+            }
         }
         fileNV.close();
     } else {
@@ -60,7 +62,6 @@ User* dangNhap(int loai) {
     return nullptr;
 }
 
-// Hàm hiển thị giao diện cho Admin
 void giaoDienAdmin() {
     int choice;
     do {
@@ -81,13 +82,19 @@ void giaoDienAdmin() {
                 cout << "Dang xuat...\n";
                 break;
             case 1:
-                //themKhachHang();
+                // themKhachHang();
                 break;
             case 2:
-                //themNhanVien();
+                // themNhanVien();
                 break;
             case 3:
-                //traCuuDoanhThu();
+                // traCuuNhanVien();
+                break;
+            case 4:
+                // traCuuKhachHang();
+                break;
+            case 5:
+                // traCuuDoanhThu();
                 break;
             default:
                 cout << "Lua chon khong hop le. Vui long nhap lai.\n";
@@ -107,7 +114,7 @@ int main() {
 
     int choice;
     while (true) {
-         cout << "Chao mung ban den voi phong kham nha khoa, ban la:\n";
+        cout << "Chao mung ban den voi phong kham nha khoa, ban la:\n";
         cout << "1. Admin\n";
         cout << "2. User\n";
         cout << "3. Thoat chuong trinh\n";
@@ -128,7 +135,6 @@ int main() {
 
             if (password == "DaylaprojectC++") {
                 giaoDienAdmin();
-
             } else {
                 cout << "Sai mat khau he thong.\n";
             }
