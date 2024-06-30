@@ -1,4 +1,3 @@
-
 #ifndef KHACHHANG_H
 #define KHACHHANG_H
 
@@ -10,16 +9,17 @@
 class KhachHang : public User {
 private:
     std::vector<std::string> lichThamKham;
-    std::vector<std::string> benhAn;
+    std::string benhAn;
+    std::string ngayBatDau;
+
 
 public:
     KhachHang();
-    KhachHang(std::string id, std::string name);
+    KhachHang(std::string id, std::string name, std::string ngaySinh, std::string gioiTinh,std::string benhAn,std::string ngayBatDau);
 
     void displayInfo() const override;
     void loadFromFile(std::ifstream &file);
     void addLichThamKham(const std::string& lich);
-    void addBenhAn(const std::string& benh);
     void hienThiLichThamKham() const;
     void hienThiBenhAn() const;
     void hienThiThongTinCaNhan() const;
