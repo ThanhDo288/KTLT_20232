@@ -41,6 +41,7 @@ void NhanVien::hienThiCaTruc(const string& rootPath) const {
     while (getline(file, line)) {
         cout << line << "\n";
     }
+
     file.close();
 }
 
@@ -384,12 +385,12 @@ void NhanVien::suaThongTinKhachHang(const string& khId, const string& rootPath) 
 
     vector<string> lines;
     string line;
-    bool found = false;
+    int lineIndex = -1; // Vị trí của khách hàng cần cập nhật
     while (getline(file, line)) {
         lines.push_back(line);
         if (line == khId) {
-            found = true;
-            for (int i = 0; i < 6; ++i) {
+            lineIndex = lines.size() - 1; // Lưu lại vị trí của mã khách hàng
+            for (int i = 0; i < 6; ++i) { // Đọc thêm 6 dòng tiếp theo
                 getline(file, line);
                 lines.push_back(line);
             }
@@ -397,24 +398,24 @@ void NhanVien::suaThongTinKhachHang(const string& khId, const string& rootPath) 
     }
     file.close();
 
-    if (!found) {
+    if (lineIndex == -1) {
         cout << "Khong tim thay khach hang voi ma so: " << khId << "\n";
         return;
     }
 
     string newName, newNgaySinh, newGioiTinh;
     cout << "Nhap ten khach hang moi (hoac Enter de giu nguyen): ";
-    cin.ignore(); // Ignore any leftover newline characters
+    cin.ignore(); // Bỏ qua các ký tự newline còn lại
     getline(cin, newName);
     if (newName.empty()) {
-        newName = lines[1].substr(11); // Keep the current name
+        newName = lines[lineIndex + 1].substr(0); // Giữ nguyên tên hiện tại
     }
 
     do {
         cout << "Nhap ngay sinh moi (dd/mm/yyyy) (hoac Enter de giu nguyen): ";
         getline(cin, newNgaySinh);
         if (newNgaySinh.empty()) {
-            newNgaySinh = lines[2].substr(11); // Keep the current birthdate
+            newNgaySinh = lines[lineIndex + 2].substr(0); // Giữ nguyên ngày sinh hiện tại
         }
         if (!isValidDate(newNgaySinh)) {
             cout << "Ngay sinh khong hop le. Vui long nhap lai.\n";
@@ -425,16 +426,17 @@ void NhanVien::suaThongTinKhachHang(const string& khId, const string& rootPath) 
         cout << "Nhap gioi tinh moi (Nam/Nu/Khac) (hoac Enter de giu nguyen): ";
         getline(cin, newGioiTinh);
         if (newGioiTinh.empty()) {
-            newGioiTinh = lines[3].substr(11); // Keep the current gender
+            newGioiTinh = lines[lineIndex + 3].substr(0); // Giữ nguyên giới tính hiện tại
         }
         if (newGioiTinh != "Nam" && newGioiTinh != "Nu" && newGioiTinh != "Khac") {
             cout << "Gioi tinh khong hop le. Vui long nhap lai.\n";
         }
     } while (newGioiTinh != "Nam" && newGioiTinh != "Nu" && newGioiTinh != "Khac");
 
-    lines[1] = newName;
-    lines[2] = newNgaySinh;
-    lines[3] = newGioiTinh;
+    // Cập nhật thông tin mới
+    lines[lineIndex + 1] = newName;
+    lines[lineIndex + 2] = newNgaySinh;
+    lines[lineIndex + 3] = newGioiTinh;
 
     ofstream outFile(filePath);
     if (!outFile.is_open()) {
