@@ -41,7 +41,6 @@ void NhanVien::hienThiCaTruc(const string& rootPath) const {
     while (getline(file, line)) {
         cout << line << "\n";
     }
-
     file.close();
 }
 
