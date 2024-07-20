@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <regex>
-
+#include <dirent.h>
 using namespace std;
 
 NhanVien::NhanVien() : User() {}
@@ -121,7 +121,7 @@ void giaoDienNhanVien(NhanVien* nv) {
         cout << "3. Thong Tin Ca Nhan\n";
         cout << "4. Them Khach Hang\n";
         cout << "5. Tim Kiem Thong Tin Khach Hang\n";
-
+        cout << "6. Xem Lich Kham Khach Hang\n";
         cout << "Nhap lua chon: ";
         cin >> choice;
 
@@ -146,6 +146,9 @@ void giaoDienNhanVien(NhanVien* nv) {
                 break;
             case 5:
                 nv->timKiemKhachHang(khRootPath);
+                break;
+            case 6:
+                nv->xemLichKhamKhachHang(khRootPath); // Gọi hàm mới
                 break;
             default:
                 cout << "Lua chon khong hop le. Vui long nhap lai.\n";
@@ -450,4 +453,38 @@ void NhanVien::suaThongTinKhachHang(const string& khId, const string& rootPath) 
     outFile.close();
 
     cout << "Sua thong tin khach hang thanh cong.\n";
+}
+
+void NhanVien::xemLichKhamKhachHang(const string& rootPath) {
+    system("cls");
+    cout << "Danh Sach Lich Kham Khach Hang:\n";
+
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir(rootPath.c_str())) != NULL) {
+        while ((ent = readdir(dir)) != NULL) {
+            string folderName = ent->d_name;
+            if (folderName != "." && folderName != "..") {
+                string folderPath = rootPath + "\\" + folderName;
+                cout << folderName << "\n";
+
+                ifstream file(folderPath + "\\LichKham.txt");
+                if (file.is_open()) {
+                    string line;
+                    cout << "Lich Kham:\n";
+                    while (getline(file, line)) {
+                        cout << "- " << line << "\n";
+                    }
+                    file.close();
+                } else {
+                    cout << "Khong the mo file LichKham.txt\n";
+                }
+                cout << "------------------------\n";
+            }
+        }
+        closedir(dir);
+    } else {
+        cout << "Khong the mo thu muc " << rootPath << "\n";
+    }
+    system("pause");
 }
