@@ -479,7 +479,11 @@ void NhanVien::xemLichKhamKhachHang(const string& rootPath) {
                 } else {
                     cout << "Khong the mo file LichKham.txt\n";
                 }
+<<<<<<< HEAD
                 cout << "-------\n";
+=======
+                cout << "------------------------\n";
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
             }
         }
         closedir(dir);

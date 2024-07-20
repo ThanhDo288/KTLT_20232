@@ -9,16 +9,21 @@
 class KhachHang : public User {
 private:
     std::vector<std::string> lichThamKham;
-    std::vector<std::string> benhAn;
+    std::string benhAn;
+    std::string ngayBatDau;
+
 
 public:
     KhachHang();
-    KhachHang(std::string id, std::string name);
+    KhachHang(std::string id, std::string name, std::string ngaySinh, std::string gioiTinh,std::string benhAn,std::string ngayBatDau);
 
     void displayInfo() const override;
     void loadFromFile(std::ifstream &file);
     void addLichThamKham(const std::string& lich);
+<<<<<<< HEAD
     void addBenhAn(const std::string& benh, const std::string& ngay, const std::string& tenKH, const std::string& tenBS, const std::string& idBS, const std::string& rootPath);
+=======
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
     void hienThiLichThamKham() const;
     void hienThiBenhAn(const std::string& rootPath) const;
     void hienThiThongTinCaNhan() const;

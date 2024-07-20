@@ -1,6 +1,9 @@
 #include "KhachHang.h"
 #include <iostream>
+<<<<<<< HEAD
 #include <windows.h>
+=======
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 #include <vector>
 #include <fstream>
 
@@ -8,18 +11,33 @@ using namespace std;
 
 KhachHang::KhachHang() : User() {}
 
+<<<<<<< HEAD
 KhachHang::KhachHang(std::string id, std::string name) : User(id, name) {}
+=======
+KhachHang::KhachHang(string id, string name, string ngaySinh, string gioiTinh, string benhAn, string ngayBatDau)
+    : User(id, name, ngaySinh, gioiTinh) {}
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 
 void KhachHang::displayInfo() const {
     cout << "Khach Hang ID: " << id << "\n";
     cout << "Ten: " << name << "\n";
+    cout << "Ngay sinh: " << ngaySinh << "\n";
+    cout << "Gioi tinh: " << gioiTinh << "\n";
 }
 
 void KhachHang::loadFromFile(ifstream &file) {
     getline(file, id);
     getline(file, name);
+    getline(file, ngaySinh);
+    getline(file, gioiTinh);
+    getline(file, benhAn);
+    getline(file, ngayBatDau);
+    // Bỏ qua dòng phân cách
+    string separator;
+    getline(file, separator);
 }
 
+<<<<<<< HEAD
 void KhachHang::addLichThamKham(const std::string& lich) {
     lichThamKham.push_back(lich);
 }
@@ -37,6 +55,13 @@ void KhachHang::addBenhAn(const std::string& benh, const std::string& ngay, cons
         cout << "Khong the tao file BenhAn.txt\n";
     }
 }
+=======
+
+void KhachHang::addLichThamKham(const string& lich) {
+    lichThamKham.push_back(lich);
+}
+
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 
 void KhachHang::hienThiLichThamKham() const {
     cout << "Lich Tham Kham:\n";
@@ -47,6 +72,7 @@ void KhachHang::hienThiLichThamKham() const {
 
 void KhachHang::hienThiBenhAn(const std::string& rootPath) const {
     cout << "Benh An:\n";
+<<<<<<< HEAD
     string folderPath = rootPath + "\\" + id;
     ifstream file(folderPath + "\\BenhAn.txt");
     if (file.is_open()) {
@@ -58,6 +84,10 @@ void KhachHang::hienThiBenhAn(const std::string& rootPath) const {
     } else {
         cout << "Khong the mo file BenhAn.txt\n";
     }
+=======
+    cout <<"\n";
+    cout << benhAn << "\n";
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 }
 
 void KhachHang::hienThiThongTinCaNhan() const {

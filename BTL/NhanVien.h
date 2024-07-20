@@ -24,7 +24,10 @@ public:
     void addKhachHang(const string& rootPath) const;
     void timKiemKhachHang(const string& rootPath) const;
     void suaThongTinKhachHang(const string& khId, const string& rootPath) const;
+<<<<<<< HEAD
     void xemLichKhamKhachHang(const string& rootPath);
+=======
+>>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 };
 
 void giaoDienNhanVien(NhanVien* nv);
