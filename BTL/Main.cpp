@@ -22,8 +22,8 @@ void khoiTaoDuLieu() {
         cout << "Khong the mo file KH.txt de doc du lieu.\n";
     }
 
-    nhanVienMap["NV001"] = NhanVien("NV001", "Le Van C");
-    nhanVienMap["NV002"] = NhanVien("NV002", "Hoang Thi D");
+//    nhanVienMap["NV001"] = NhanVien("NV001", "Le Van C");
+  //  nhanVienMap["NV002"] = NhanVien("NV002", "Hoang Thi D");
 }
 
 User* dangNhap(int loai) {
@@ -54,6 +54,7 @@ int main() {
 
     int choice;
     while (true) {
+        system("cls");
         cout << "Chon loai dang nhap:\n";
         cout << "1. Dang nhap khach hang (nhan 1)\n";
         cout << "2. Dang nhap nhan vien (nhan 2)\n";
@@ -61,6 +62,13 @@ int main() {
         cout << "Nhap lua chon: ";
         cin >> choice;
         cin.ignore();
+
+        // Kiểm tra lựa chọn có hợp lệ không
+        if (choice < 1 || choice > 3) {
+            cout << "Lua chon khong hop le. Vui long nhap lai.\n";
+            system("pause");
+            continue; // Quay lại đầu vòng lặp để nhập lại
+        }
 
         if (choice == 3) {
             cout << "Thoat chuong trinh...\n";
@@ -81,6 +89,7 @@ int main() {
         } else {
             cout << "Dang nhap that bai.\n";
         }
+        //system("pause");
     }
 
     return 0;
