@@ -7,26 +7,33 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <sys/stat.h>
-#include <sys/types.h>
+#include <unordered_map>
+#include "User.h"
+#include <cstring>
 
-class Admin {
+class Admin : public User {
 public:
+    Admin();
+    Admin(std::string id, std::string name, std::string ngaySinh, std::string gioiTinh);
+
+    void displayInfo() const override;
+    void loadFromFile(std::ifstream &file);
+    void addKhachHang();
     void addNhanVien();
     void addLuong();
     void addNgayTruc();
-    // void editNhanVien();
-    // void editLuong();
-    // void editNgayTruc();
     void addBenhAn();
-    // void editBenhAn();
+    void searchNhanVien() const;
+    void searchKhachHang() const;
+    void thongKeNhanh();
 
 private:
     bool isValidDate(const std::string& date) const;
     bool isValidGender(const std::string& gender) const;
-    bool isDayAvailable(const std::string& day, const std::string& nvId) const;
+    // bool isDayAvailable(const std::string& day, const std::string& nvId) const;
     bool hasReachedMaxEmployees(const std::string& filePath) const;
     std::string getNextId(const std::string& filePath, const std::string& prefix) const;
 };
 
+void giaoDienAdmin(Admin* ad);
 #endif // ADMIN_H
