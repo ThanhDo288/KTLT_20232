@@ -196,3 +196,13 @@
 	<regex>
 	<dirent.h>
 
+1721550856 source:d:\choi c++\btl20232\ktlt_20232\btl_chot\admin.cpp
+	<iostream>
+	<unordered_map>
+	"KhachHang.h"
+	"NhanVien.h"
+	"Admin.h"
+	<direct.h>
+	<sys/stat.h>
+	<sys/types.h>
+

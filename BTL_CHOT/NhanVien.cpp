@@ -465,7 +465,6 @@ void NhanVien::suaThongTinKhachHang(const string& khId, const string& rootPath) 
 
     cout << "Sua thong tin khach hang thanh cong.\n";
 }
-
 void NhanVien::xemLichKhamKhachHang(const string& rootPath) {
     system("cls");
     cout << "Danh Sach Lich Kham Khach Hang:\n";
@@ -473,27 +472,42 @@ void NhanVien::xemLichKhamKhachHang(const string& rootPath) {
     DIR *dir;
     struct dirent *ent;
     if ((dir = opendir(rootPath.c_str())) != NULL) {
+        bool hasData = false; // Cờ kiểm tra xem có ít nhất một khách hàng có lịch khám
+
         while ((ent = readdir(dir)) != NULL) {
             string folderName = ent->d_name;
             if (folderName != "." && folderName != "..") {
                 string folderPath = rootPath + "\\" + folderName;
-                cout << folderName << "\n";
+                string filePath = folderPath + "\\LichKham.txt";
 
-                ifstream file(folderPath + "\\LichKham.txt");
+                ifstream file(filePath);
                 if (file.is_open()) {
-                    string line;
-                    cout << "Lich Kham:\n";
-                    while (getline(file, line)) {
-                        cout << "- " << line << "\n";
+                    // Kiểm tra nếu file không rỗng
+                    file.seekg(0, ios::end); // Chuyển con trỏ đến cuối file
+                    if (file.tellg() != 0) { // Kiểm tra nếu vị trí con trỏ không ở đầu (file không rỗng)
+                        file.seekg(0, ios::beg); // Quay lại đầu file để đọc nội dung
+                        string line;
+                        if (!hasData) {
+                            hasData = true; // Đánh dấu có ít nhất một khách hàng có lịch khám
+                        }
+                        cout << folderName << "\n";
+                        cout << "Lich Kham:\n";
+                        while (getline(file, line)) {
+                            cout << "- " << line << "\n";
+                        }
+                        cout << "------------------------\n";
                     }
                     file.close();
                 } else {
                     cout << "Khong the mo file LichKham.txt\n";
                 }
-                cout << "------------------------\n";
             }
         }
         closedir(dir);
+
+        if (!hasData) {
+            cout << "Khong co lich kham nao.\n";
+        }
     } else {
         cout << "Khong the mo thu muc " << rootPath << "\n";
     }
