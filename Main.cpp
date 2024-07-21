@@ -2,16 +2,16 @@
 #include <unordered_map>
 #include "KhachHang.h"
 #include "NhanVien.h"
-#include "NhanVien.cpp"
-#include "KhachHang.cpp"
 #include "Admin.h"
+#include "KhachHang.cpp"
+#include "NhanVien.cpp"
 #include "Admin.cpp"
 
 using namespace std;
 
 unordered_map<string, KhachHang> khachHangMap;
 unordered_map<string, NhanVien> nhanVienMap;
-
+unordered_map<string, Admin> adminMap;
 void khoiTaoDuLieu() {
     // Đọc dữ liệu từ KH.txt
     ifstream fileKH("KH.txt");
@@ -42,6 +42,21 @@ void khoiTaoDuLieu() {
     } else {
         cout << "Khong the mo file NV.txt de doc du lieu.\n";
     }
+
+    // Đọc dữ liệu từ Admin.txt
+    ifstream fileAdmin("Admin.txt");
+    if (fileAdmin.is_open()) {
+        while (!fileAdmin.eof()) {
+            Admin ad;
+            ad.loadFromFile(fileAdmin);
+            if (!ad.getId().empty()) { // Kiểm tra xem ID có trống không
+                adminMap[ad.getId()] = ad;
+            }
+        }
+        fileAdmin.close();
+    } else {
+        cout << "Khong the mo file Admin.txt de doc du lieu.\n";
+    }
 }
 
 User* dangNhap(int loai) {
@@ -62,56 +77,14 @@ User* dangNhap(int loai) {
         } else {
             cout << "Ma nhan vien khong ton tai.\n";
         }
+    } else if (loai == 3) { // Admin
+        if (adminMap.find(id) != adminMap.end()) {
+            return &adminMap[id];
+        } else {
+            cout << "Ma Admin khong ton tai.\n";
+        }
     }
     return nullptr;
-}
-
-void giaoDienAdmin() {
-    Admin admin;
-    int choice;
-    do {
-        system("cls"); // Xóa màn hình console để hiển thị giao diện
-        cout << "Chao Admin, ban chon:\n";
-        cout << "1. Them Nhan Vien\n";
-        cout << "2. Them Luong cho Nhan Vien\n";
-        cout << "3. Them Ngay Truc cho Nhan Vien\n";
-        cout << "4. Them Benh An cho Khach Hang\n";
-        // cout << "5. Tra cuu Doanh Thu\n";
-        cout << "0. Dang xuat\n";
-        cout << "Nhap lua chon: ";
-        cin >> choice;
-        cin.ignore();
-
-        switch (choice) {
-            case 0:
-                cout << "Dang xuat...\n";
-                break;
-            case 1:
-                admin.addNhanVien();
-                break;
-            case 2:
-                admin.addLuong();
-                break;
-            case 3:
-                admin.addNgayTruc();
-                break;
-            case 4:
-                admin.addBenhAn();
-                break;
-            case 5:
-                // traCuuDoanhThu();
-                break;
-            default:
-                cout << "Lua chon khong hop le. Vui long nhap lai.\n";
-                break;
-        }
-
-        // Sau mỗi lựa chọn, đợi người dùng nhấn Enter để tiếp tục
-        cout << "Nhan Enter de tiep tuc...";
-        cin.ignore();
-        cin.get();
-
-    } while (choice != 0);
 }
 
 int main() {
@@ -133,15 +106,14 @@ int main() {
         }
 
         if (choice == 1) {
-            string password;
-            cout << "Nhap mat khau he thong: ";
-            cin >> password;
-            cin.ignore();
-
-            if (password == "DaylaprojectC++") {
-                giaoDienAdmin();
+            User* user = dangNhap(3); // Admin
+            if (user != nullptr) {
+                cout << "Dang nhap thanh cong!\n";
+                user->displayInfo();
+                Admin* ad = dynamic_cast<Admin*>(user);
+                giaoDienAdmin(ad);
             } else {
-                cout << "Sai mat khau he thong.\n";
+                cout << "Dang nhap that bai.\n";
             }
         } else if (choice == 2) {
             cout << "Chon loai dang nhap:\n";
