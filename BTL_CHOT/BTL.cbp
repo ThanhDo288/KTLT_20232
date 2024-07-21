@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Admin.cpp" />
+		<Unit filename="Admin.h" />
 		<Unit filename="KH.txt" />
 		<Unit filename="KhachHang.cpp" />
 		<Unit filename="KhachHang.h" />

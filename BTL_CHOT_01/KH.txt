@@ -1,0 +1,56 @@
+KH001
+Nguyen Van A
+06/03/2008
+Nam
+Chuan doan benh: Viem loi cap tinh
+Ngay bat dau dieu tri: 14/06/2024
+---------------------------------------------
+KH002
+Tran Thi B
+15/06/1994
+Nu
+Chuan doan benh: Dau rang ham
+Ngay bat dau dieu tri: 21/06/2024
+---------------------------------------------
+KH003
+Le Thi C
+21/08/2000
+Nu
+Chuan doan benh: Sau rang
+Ngay bat dau dieu tri: 24/06/2024
+---------------------------------------------
+KH004
+Pham Van Anh
+06/03/2009
+Nam
+Chuan doan benh: Viem tuy
+Ngay bat dau dieu tri: 25/06/2024
+---------------------------------------------
+KH005
+Phan Dinh Phung
+22/04/1998
+Nam
+Chuan doan benh: Sau rang
+Ngay bat dau dieu tri: 30/06/2024
+---------------------------------------------
+KH006
+Chu Van G
+22/11/2000
+Nam
+Chuan doan benh: Dau rang
+Ngay bat dau dieu tri: 30/06/2024
+---------------------------------------------
+KH007
+Phuong Phuong
+12/03/1996
+Nu
+Chuan doan benh: Sau rang
+Ngay bat dau dieu tri: 30/06/2024
+---------------------------------------------
+KH008
+nguyen van a
+28/09/2003
+Nam
+Chuan doan benh: ABC
+Ngay bat dau dieu tri: 24/12/2022
+---------------------------------------------
