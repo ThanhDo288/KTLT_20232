@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1719731518 source:d:\ktlt_20232-thanhdo\btl\main.cpp
+	<iostream>
+	<unordered_map>
+	"KhachHang.h"
+	"NhanVien.h"
+
+1718880763 am>
+
+1718880763 red_map>
+
+1718880763 ang.h"
+
+1718880763 en.h"
+
+1721343898 d:\ktlt_20232-thanhdo\btl\khachhang.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+
+1718880763 "
+
+1718880763 >
+
+1718880763 m>
+
+1719726035 d:\ktlt_20232-thanhdo\btl\user.h
+	<string>
+
+1721484788 d:\ktlt_20232-thanhdo\btl\nhanvien.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+
+1721484946 source:d:\ktlt_20232-thanhdo\btl\nhanvien.cpp
+	"NhanVien.h"
+	<fstream>
+	<iostream>
+	<regex>
+	<dirent.h>
+
+1719754595 source:d:\ktlt_20232-thanhdo\btl\khachhang.cpp
+	"KhachHang.h"
+	<iostream>
+	<vector>
+	<fstream>
+
+1718880763 s.h>
+
+1721491765 source:d:\choi c++\btl\khachhang.cpp
+	"KhachHang.h"
+	<iostream>
+	<vector>
+	<fstream>
+
+1721493796 d:\choi c++\btl\khachhang.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+
+1721488739 d:\choi c++\btl\user.h
+	<string>
+
+1721488739 source:d:\choi c++\btl\main.cpp
+	<iostream>
+	<unordered_map>
+	"KhachHang.h"
+	"NhanVien.h"
+
+1721488739 d:\choi c++\btl\nhanvien.h
+	"User.h"
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+
+1721490013 source:d:\choi c++\btl\nhanvien.cpp
+	"NhanVien.h"
+	<fstream>
+	<iostream>
+	<regex>
+	<dirent.h>
+

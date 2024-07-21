@@ -9,25 +9,21 @@
 class KhachHang : public User {
 private:
     std::vector<std::string> lichThamKham;
-    std::string benhAn;
-    std::string ngayBatDau;
-
+    std::vector<std::string> benhAn;
 
 public:
     KhachHang();
-    KhachHang(std::string id, std::string name, std::string ngaySinh, std::string gioiTinh,std::string benhAn,std::string ngayBatDau);
+    KhachHang(std::string id, std::string name);
 
     void displayInfo() const override;
     void loadFromFile(std::ifstream &file);
+    void saveToFile(std::ofstream &file) const; // Thêm phương thức này
     void addLichThamKham(const std::string& lich);
-<<<<<<< HEAD
     void addBenhAn(const std::string& benh, const std::string& ngay, const std::string& tenKH, const std::string& tenBS, const std::string& idBS, const std::string& rootPath);
-=======
->>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
     void hienThiLichThamKham() const;
     void hienThiBenhAn(const std::string& rootPath) const;
     void hienThiThongTinCaNhan() const;
-     void chinhSuaThongTinCaNhan();
+    void chinhSuaThongTinCaNhan();
     void datLichThamKham(const std::string& lich, const std::string& rootPath);
     void xoaLichThamKham(const std::string& rootPath);
     void chinhSuaLichThamKham(const std::string& rootPath);

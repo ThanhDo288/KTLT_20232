@@ -2,29 +2,34 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-6" zoom_2="0">
+	<File name="User.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="367" topLine="6" />
+			<Cursor1 position="374" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="KhachHang.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-8" zoom_2="0">
+	<File name="NhanVien.cpp" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-8" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="10986" topLine="331" />
+			<Cursor1 position="132" topLine="6" />
 		</Cursor>
 	</File>
-	<File name="User.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="KhachHang.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="350" topLine="6" />
+			<Cursor1 position="12425" topLine="367" />
 		</Cursor>
 	</File>
-	<File name="NhanVien.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-8" zoom_2="0">
+	<File name="NhanVien.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-5" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="296" topLine="0" />
+			<Cursor1 position="142" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="KhachHang.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-5" zoom_2="0">
+	<File name="Main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1400" topLine="17" />
+			<Cursor1 position="3235" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="KhachHang.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1603" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

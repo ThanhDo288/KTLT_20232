@@ -25,34 +25,37 @@
 	"KhachHang.h"
 	<iostream>
 
-1721467154 source:d:\choi c++\btl20232\ktlt_20232\btl\khachhang.cpp
+1721487738 source:d:\choi c++\btl20232\ktlt_20232\btl\khachhang.cpp
 	"KhachHang.h"
 	<iostream>
 	<windows.h>
 	<vector>
 	<fstream>
 
-1721466607 d:\choi c++\btl20232\ktlt_20232\btl\khachhang.h
+1721488342 d:\choi c++\btl20232\ktlt_20232\btl\khachhang.h
 	"User.h"
 	<vector>
 	<string>
 	<fstream>
 
-1718503312 d:\choi c++\btl20232\ktlt_20232\btl\user.h
+1721487952 d:\choi c++\btl20232\ktlt_20232\btl\user.h
 	<string>
 
-1718471896 source:d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.cpp
-	"NhanVien.h"
+1721488192 source:d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.cpp
+	"KhachHang.h"
 	<iostream>
+	<windows.h>
+	<vector>
+	<fstream>
 
-1721485913 d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.h
+1721486317 d:\choi c++\btl20232\ktlt_20232\btl\nhanvien.h
 	"User.h"
 	<vector>
 	<string>
 	<fstream>
 	<iostream>
 
-1721468117 source:d:\choi c++\btl20232\ktlt_20232\btl\main.cpp
+1721488091 source:d:\choi c++\btl20232\ktlt_20232\btl\main.cpp
 	<iostream>
 	<unordered_map>
 	"KhachHang.h"

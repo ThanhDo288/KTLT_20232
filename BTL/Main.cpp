@@ -24,10 +24,6 @@ void khoiTaoDuLieu() {
         cout << "Khong the mo file KH.txt de doc du lieu.\n";
     }
 
-<<<<<<< HEAD
-//    nhanVienMap["NV001"] = NhanVien("NV001", "Le Van C");
-  //  nhanVienMap["NV002"] = NhanVien("NV002", "Hoang Thi D");
-=======
     // Đọc dữ liệu từ NV.txt
     ifstream fileNV("NV.txt");
     if (fileNV.is_open()) {
@@ -42,7 +38,6 @@ void khoiTaoDuLieu() {
     } else {
         cout << "Khong the mo file NV.txt de doc du lieu.\n";
     }
->>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
 }
 
 User* dangNhap(int loai) {
@@ -114,21 +109,19 @@ void giaoDienAdmin() {
     } while (choice != 0);
 }
 
+void giaoDienNhanVien(NhanVien* nv) {
+    // Implement this function if needed
+}
+
 int main() {
     khoiTaoDuLieu();
 
     int choice;
     while (true) {
-<<<<<<< HEAD
         system("cls");
         cout << "Chon loai dang nhap:\n";
         cout << "1. Dang nhap khach hang (nhan 1)\n";
         cout << "2. Dang nhap nhan vien (nhan 2)\n";
-=======
-        cout << "Chao mung ban den voi phong kham nha khoa, ban la:\n";
-        cout << "1. Admin\n";
-        cout << "2. User\n";
->>>>>>> b2bd946e6dc60279cb1f401143946fd47a70cf53
         cout << "3. Thoat chuong trinh\n";
         cout << "Nhap lua chon: ";
         cin >> choice;
@@ -146,50 +139,21 @@ int main() {
             break;
         }
 
-        if (choice == 1) {
-            string password;
-            cout << "Nhap mat khau he thong: ";
-            cin >> password;
-            cin.ignore();
+        User* user = dangNhap(choice);
+        if (user != nullptr) {
+            cout << "Dang nhap thanh cong!\n";
+            user->displayInfo();
 
-            if (password == "DaylaprojectC++") {
-                giaoDienAdmin();
+            if (choice == 1) {
+                KhachHang* kh = dynamic_cast<KhachHang*>(user);
+                giaoDienKhachHang(kh);
             } else {
-                cout << "Sai mat khau he thong.\n";
-            }
-        } else if (choice == 2) {
-            cout << "Chon loai dang nhap:\n";
-            cout << "1. Dang nhap khach hang (nhan 1)\n";
-            cout << "2. Dang nhap nhan vien (nhan 2)\n";
-            cout << "3. Thoat chuong trinh\n";
-            cout << "Nhap lua chon: ";
-            cin >> choice;
-            cin.ignore();
-
-            if (choice == 3) {
-                cout << "Thoat chuong trinh...\n";
-                break;
-            }
-
-            User* user = dangNhap(choice);
-            if (user != nullptr) {
-                cout << "Dang nhap thanh cong!\n";
-                user->displayInfo();
-
-                if (choice == 1) {
-                    KhachHang* kh = dynamic_cast<KhachHang*>(user);
-                    giaoDienKhachHang(kh);
-                } else if (choice == 2) {
-                    NhanVien* nv = dynamic_cast<NhanVien*>(user);
-                    giaoDienNhanVien(nv);
-                }
-            } else {
-                cout << "Dang nhap that bai.\n";
+                // Giao diện cho nhân viên (nếu cần)
             }
         } else {
-            cout << "Lua chon khong hop le. Vui long nhap lai.\n";
+            cout << "Dang nhap that bai.\n";
         }
-        //system("pause");
+        system("pause");
     }
 
     return 0;

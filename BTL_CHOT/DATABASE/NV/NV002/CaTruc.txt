@@ -1,0 +1,9 @@
+| Ngay         	| Ca lam viec    |
+|---------------|----------------|
+| Thu hai       | 3p.m - 9p.m    |
+| Thu ba        | 3p.m - 9p.m    |
+| Thu tu        | 7a.m - 3p.m    |
+| Thu nam       | 7a.m - 3p.m    |
+| Thu sau       | 7a.m - 3p.m    |
+| Thu bay       | 3p.m - 9p.m    |
+| Chu nhat     	| 8a.m-5p.m	 |            |
