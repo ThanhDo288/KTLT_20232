@@ -7,7 +7,7 @@ using namespace std;
 
 NhanVien::NhanVien() : User() {}
 
-NhanVien::NhanVien(string id, string name, string ngaySinh, string gioiTinh)
+NhanVien::NhanVien(string id, string name, string ngaySinh, string gioiTinh, string luong)
     : User(id, name, ngaySinh, gioiTinh) {}
 
 void NhanVien::displayInfo() const {
@@ -29,7 +29,7 @@ void NhanVien::loadFromFile(ifstream &file) {
 
 
 void NhanVien::hienThiCaTruc(const string& rootPath) const {
-    string folderPath = rootPath + "/" + id; // Construct folder path using id
+    string folderPath = rootPath + "/" + id; 
     ifstream file(folderPath + "/CaTruc.txt");
     if (!file.is_open()) {
         cout << "Khong the mo file CaTruc.txt\n";
@@ -72,7 +72,7 @@ void giaoDienXemCaTruc(NhanVien* nv, const string& rootPath) {
 }
 
 void NhanVien::hienThiLuong(const string& rootPath) const {
-    string filePath = rootPath + "/" + id + "/Luong.txt"; // Đường dẫn tới file lương
+    string filePath = rootPath + "/" + id + "/Luong.txt"; 
     ifstream file(filePath);
     if (!file.is_open()) {
         cout << "Khong the mo file Luong.txt\n";
@@ -90,8 +90,7 @@ void giaoDienLuong(NhanVien* nv, const string& rootPath) {
     int choice;
     do {
         system("cls");
-        nv->hienThiLuong(rootPath); // Hiển thị thông tin lương của nhân viên
-
+        nv->hienThiLuong(rootPath); 
         cout << "\n0. Quay Lai Trang Truoc\n";
         cout << "Nhap lua chon: ";
         cin >> choice;
@@ -99,18 +98,19 @@ void giaoDienLuong(NhanVien* nv, const string& rootPath) {
         switch (choice) {
             case 0:
                 cout << "Quay lai trang truoc...\n";
-                return; // Thoát khỏi hàm khi người dùng chọn quay lại
+                return; 
             default:
                 cout << "Lua chon khong hop le. Vui long thu lai.\n";
                 break;
         }
-    } while (true); // Vòng lặp vô hạn để người dùng có thể lựa chọn quay lại
+    } while (true);
 }
 
 void giaoDienNhanVien(NhanVien* nv) {
     int choice;
-    string rootPath = "D:/KTLT_20232-thanhdo/BTL/DATABASE/NV";
-    string khRootPath = "D:/KTLT_20232-thanhdo/BTL/DATABASE/KH";
+    string rootPath = "D:/BTL_CHOT/DATABASE/NV";
+    string khRootPath = "D:/BTL_CHOT/DATABASE/KH";
+
 
     do {
         system("cls");
@@ -275,6 +275,16 @@ void NhanVien::addKhachHang(const string& rootPath) const {
     outFile << "Ngay bat dau dieu tri: " << ngayBatDau << endl;
     outFile <<  "---------------------------------------------"<<endl;
 
+    string benhAnFilePath = "D:/BTL_CHOT/DATABASE/KH/" + newId + "/BenhAn.txt";
+    ofstream benhAnFile(benhAnFilePath, ios::app);
+    if (!benhAnFile.is_open()) {
+        cout << "Khong the mo file " << benhAnFilePath << " de ghi\n";
+        return;
+    }
+
+    benhAnFile << "Chuan doan benh: " << benhAn << endl;
+    benhAnFile << "Ngay bat dau dieu tri: " << ngayBatDau << endl;
+    benhAnFile.close();
     cout << "Them khach hang thanh cong voi ma so: " <<newId<< endl;
 }
 
@@ -462,27 +472,42 @@ void NhanVien::xemLichKhamKhachHang(const string& rootPath) {
     DIR *dir;
     struct dirent *ent;
     if ((dir = opendir(rootPath.c_str())) != NULL) {
+        bool hasData = false; // Cờ kiểm tra xem có ít nhất một khách hàng có lịch khám
+
         while ((ent = readdir(dir)) != NULL) {
             string folderName = ent->d_name;
             if (folderName != "." && folderName != "..") {
                 string folderPath = rootPath + "\\" + folderName;
-                cout << folderName << "\n";
+                string filePath = folderPath + "\\LichKham.txt";
 
-                ifstream file(folderPath + "\\LichKham.txt");
+                ifstream file(filePath);
                 if (file.is_open()) {
-                    string line;
-                    cout << "Lich Kham:\n";
-                    while (getline(file, line)) {
-                        cout << "- " << line << "\n";
+                    // Kiểm tra nếu file không rỗng
+                    file.seekg(0, ios::end); // Chuyển con trỏ đến cuối file
+                    if (file.tellg() != 0) { // Kiểm tra nếu vị trí con trỏ không ở đầu (file không rỗng)
+                        file.seekg(0, ios::beg); // Quay lại đầu file để đọc nội dung
+                        string line;
+                        if (!hasData) {
+                            hasData = true; // Đánh dấu có ít nhất một khách hàng có lịch khám
+                        }
+                        cout << folderName << "\n";
+                        cout << "Lich Kham:\n";
+                        while (getline(file, line)) {
+                            cout << "- " << line << "\n";
+                        }
+                        cout << "------------------------\n";
                     }
                     file.close();
                 } else {
                     cout << "Khong the mo file LichKham.txt\n";
                 }
-                cout << "------------------------\n";
             }
         }
         closedir(dir);
+
+        if (!hasData) {
+            cout << "Khong co lich kham nao.\n";
+        }
     } else {
         cout << "Khong the mo thu muc " << rootPath << "\n";
     }
